@@ -1,3 +1,11 @@
+5.2.4
+=====
+BUG FIXES
+---------
+ - Allow partition_data functions and procedure to work when the source table is in a different schema than the partition table.
+ - Removed SECURITY DEFINER from the last two functions that still had it lingering.
+
+
 5.2.3
 =====
 BUG FIXES
