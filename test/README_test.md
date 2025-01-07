@@ -39,3 +39,11 @@ Tests for the Background Worker can be found in the test/test_bgw folder. Please
 Tests for procedures are in their own folders. These must be run in stages with manual commands between them since pgTap cannot handle distinct commits within a single test run.
 
 Tests for the reindexing script are in development and will return once the reindexing feature has been updated. They can be found in the test/test_reindex folder. These tests cannot just be run all at once and are not run within rolled back transactions. They must be run in order, one at a time, and there are explicit instructions at the end of each test for what to do next.
+
+### Running tests in Docker
+See [README_docker.md](../docker/README_docker.md) for instructions on testing inside a persistent container running PostgreSQL 17.
+
+To run the same tests as GitHub CI (on PostgreSQL 17):
+```sh
+docker run -it --rm -w /pg_partman --volume "$(pwd):/pg_partman" pgxn/pgxn-tools docker/pgxn_standalone_entrypoint.sh 17
+```
